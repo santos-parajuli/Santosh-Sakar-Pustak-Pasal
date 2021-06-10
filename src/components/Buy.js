@@ -29,6 +29,9 @@ class Buy extends Component {
           dummy:[]
         }
     }
+    componentDidMount(){
+      document.title= this.props.match.params.id + " || Buy Books"
+  }
     onChangePhone(event) {
       event.preventDefault();
       const regex = new RegExp(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]/);
@@ -89,9 +92,7 @@ class Buy extends Component {
             <form action="" style={{padding:"2rem"}} onSubmit={this.submitData.bind(this)}>
                 <Typography variant="h3"> Buy book of {this.props.match.params.id}</Typography>
                 <br/>
-                <hr/>
                 <Typography variant="h6"> Please provide the your contact information.</Typography>
-                <hr/>
                 <TextField style={{margin:"1rem"}} required  variant="outlined" label="Name" onChange={this.onChangeName.bind(this)}/>
                 <br/>
                 <TextField style={{margin:"1rem"}} required error = {this.state.error} variant="outlined" label="Phone Number" helperText= {this.state.errorText} onChange={this.onChangePhone.bind(this)}/>
@@ -149,13 +150,18 @@ class Buy extends Component {
                 <br/>
                 <Button
                   variant="contained"
-                  disabled={this.state.disabled}
+                  disabled={this.state.disabled || this.state.uploading}
                   color="primary"
                   type="submit"
                   style={{margin:"1rem",padding:"15px"}}
                   endIcon={<SendIcon/>}
                 >
-                  Order Book
+                  {
+                    this.state.uploading && "Ordering..." 
+                  }
+                  {
+                    !this.state.uploading && "Order Now" 
+                  }
                 </Button>
                 <Backdrop  open={this.state.uploading}>
                   <CircularProgress color="inherit" />
