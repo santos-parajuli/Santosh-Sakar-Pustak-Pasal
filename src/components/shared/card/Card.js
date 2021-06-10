@@ -7,7 +7,7 @@ export default class Card extends Component {
             <div className="container">
                 <div className="c-card-block">
                     <a href={`/buy/${this.props.data}`}>
-                    <img src="https://i.imgur.com/TbCdtxd.png" alt="book"/>
+                    <img src="https://i.imgur.com/7AyUhAD.png" alt="book"/>
                     <h3>{this.props.data}</h3>
                     </a>
                 </div>

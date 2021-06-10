@@ -41,13 +41,13 @@
     border-radius: 50px;
     right: 40%;
     margin: 30px 0;
-    background: #12aaeb;
+    background: #f17373;
     position: absolute;
 }
 .c-card-block:after {
     content: 'Buy';
     width: 100%;
-    background: #12aaeb;
+    background: #f17373;
     color: #fff;
     position: absolute;
     left: 0;
