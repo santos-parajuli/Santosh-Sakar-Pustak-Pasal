@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import BookList from "./components/BookList";
 import Buy from "./components/Buy";
+import WhyUs from "./components/whyUs/WhyUs";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" exact >
             <Notice/>
             <br/>
+            <WhyUs/>
             <Map/>
           </Route>
           <Route path="/books" exact>
