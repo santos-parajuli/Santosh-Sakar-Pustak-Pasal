@@ -1,0 +1,68 @@
+:root {
+    font-size: 16px;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.c-card-block {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 25rem;
+    text-align: center;
+    transition: height 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.c-card-block img {
+    width: 80%;
+    height: 40%;
+}
+.c-card-block a {
+    padding: 5rem 3rem;
+    color: #777;
+    text-decoration: none;
+    display: block;
+    z-index: 2;
+}
+.c-card-block h3 {
+    font-size: 3rem;
+}
+.c-card-block:before {
+    content: '';
+    width: 4rem;
+    height: 1rem;
+    border-radius: 50px;
+    right: 40%;
+    margin: 30px 0;
+    background: #12aaeb;
+    position: absolute;
+}
+.c-card-block:after {
+    content: 'Buy';
+    width: 100%;
+    background: #12aaeb;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 1.25rem;
+    z-index: 1;
+    transform: translateY(80%);
+    opacity: 0.5;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.c-card-block:hover {
+    height: 26rem;
+    transform: translateY(-0.5em);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+}
+.c-card-block:hover:after {
+    transform: translateY(0);
+}
