@@ -16,9 +16,9 @@ class Buy extends Component {
         super(props)
         this.state = {books:[],class:"",uploading:false,open:false,disabled:true, name:"",phone:"",errorText: '', value: props.value,error:false }
         this.bookList = {
-          1:["English","Hamro Serofero","Math","Nepali"],
-          2:["English","English Grammar","Nepali","Math","Science","Social","G.K","Drawing","Moral Education","Cursive","Computer"],
-          3:["English","English Grammar","Nepali","Math","Science","Social","G.K","Drawing","Moral Education","Cursive","Computer"],
+          1:["English","Hamro Serofero","Math","Nepali","Local Curriculum"],
+          2:["English","Hamro Serofero","Math","Nepali","Local Curriculum","G.K","Computer"],
+          3:["English","Hamro Serofero","Math","Nepali","Local Curriculum","G.K","Computer"],
           4:["English","English Grammar","Nepali","Math","Science","Social","G.K","Drawing","Moral Education","Cursive","Computer"],
           5:["English","English Grammar","Nepali","Nepali Grammar","Math","Science","Social","G.K","Drawing","Moral Education","Cursive","Computer"],
           6:["English","English Grammar","Nepali","Nepali Grammar","Math","Science","Social","Atlas","H.P","Moral Education","OBT","Computer"],
@@ -97,6 +97,7 @@ class Buy extends Component {
                 <br/>
                 <TextField style={{margin:"1rem"}} required error = {this.state.error} variant="outlined" label="Phone Number" helperText= {this.state.errorText} onChange={this.onChangePhone.bind(this)}/>
                 <br/>
+                
                 {
                   this.props.match.params.id==="Specific Book" &&
                     <FormControl required style={{minWidth:"223px",marginLeft:"1rem"}}>
@@ -163,6 +164,17 @@ class Buy extends Component {
                     !this.state.uploading && "Order Now" 
                   }
                 </Button>
+                {
+                  (this.props.match.params.id!=="Specific Book" && this.props.match.params.id!=="LKG"&& this.props.match.params.id!=="UKG" && this.props.match.params.id!=="Nursery") &&
+                  <div>
+                  <h1>{this.props.match.params.id} Set Includes Following Books</h1>
+                  <p>{
+                    this.bookList[this.props.match.params.id.split(" ").pop()].map(val=>{
+                      return <p>{val}</p> 
+                    })
+                  }</p>
+                  </div>
+                  }
                 <Backdrop  open={this.state.uploading}>
                   <CircularProgress color="inherit" />
                 </Backdrop>
